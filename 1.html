@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sudoku</title>
+  <link rel="stylesheet" href="1.css" />
+  <script defer src="1.js"></script>
+</head>
+<body>
+  <div class="sudoku-container">
+    <h1>🧩 Sudoku 🧩</h1>
+
+    <!-- Difficulty Selector -->
+    <div class="controls">
+      <label for="difficulty">Difficulty:</label>
+      <select id="difficulty">
+        <option value="easy">Easy (4x4, 20 moves)</option>
+        <option value="medium">Medium (6x6, 35 moves)</option>
+        <option value="hard">Hard (6x6, 50 moves)</option>
+      </select>
+    </div>
+
+    <!-- Moves and Timer -->
+    <div class="controls">
+      <span id="movesLeft">Moves Left: 0</span>
+      <span id="timer">Time: 00:00</span>
+    </div>
+
+    <div id="board"></div>
+
+    <div class="controls">
+      <button onclick="solveSudoku()">Solve</button>
+      <button onclick="resetBoard()">Reset</button>
+      <button onclick="startGame()">Start</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="customModal" class="modal">
+    <div class="modal-content">
+      <p id="modalText"></p>
+      <button onclick="closeModal()" id="closeModalBtn">OK</button>
+    </div>
+  </div>
+
+  <!-- Sounds -->
+  <audio id="loseSound" src="lose.mp3" preload="auto"></audio>
+  <audio id="winSound" src="win.mp3" preload="auto"></audio>
+  <audio id="errorSound" src="error.mp3" preload="auto"></audio>
+</body>
+</html>

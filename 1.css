@@ -1,0 +1,144 @@
+/* General body styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4e9d7; /* Light parchment/scrapbook paper color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Center the entire sudoku container */
+.sudoku-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Container holding the Sudoku board */
+#board {
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  grid-template-rows: repeat(4, 60px);
+  gap: 5px;
+  background: #fff8dc; /* Slightly lighter parchment */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  border: 3px solid #deb887; /* BurlyWood border */
+}
+
+/* Each cell input styling */
+.cell {
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  text-align: center;
+  border: 2px solid #deb887; /* Matching border */
+  border-radius: 8px;
+  outline: none;
+  background-color: #fff;
+  transition: background-color 0.3s, border-color 0.3s;
+  user-select: none;
+  box-shadow:
+    inset 0 -3px 5px rgba(255,255,255,0.7),
+    0 2px 5px rgba(0,0,0,0.1); /* Subtle raised paper effect */
+}
+
+/* Prefilled cells have distinct style and are read-only */
+.prefilled {
+  background-color: #f0e6d2;
+  font-weight: 700;
+  color: #5a3e1b;
+  cursor: default;
+  border: 2px solid #c19a6b;
+}
+
+/* On focus for editable cells */
+.cell:not(.prefilled):focus {
+  border-color: #ff7f50; /* Coral border */
+  background-color: #fff1e0;
+  box-shadow: 0 0 8px #ff7f50aa;
+}
+
+/* Highlight invalid cells */
+.invalid {
+  background-color: #fbb !important;  /* Light red background */
+  border-color: red !important;       /* Red border */
+  box-shadow: 0 0 8px red;             /* Red glow */
+}
+
+/* Modal styling */
+#customModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content box */
+.modal-content {
+  background: #fff8dc;
+  padding: 25px 35px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  text-align: center;
+  max-width: 320px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #5a3e1b;
+}
+
+/* Modal button */
+#closeModalBtn {
+  margin-top: 20px;
+  background-color: #deb887;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+#closeModalBtn:hover {
+  background-color: #c19a6b;
+}
+
+/* Control buttons styling */
+.controls {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* space between buttons */
+}
+
+.controls button {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background-color: #6a9cfb;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #5a8ce6;
+}
+/* Highlighted cell during solving animation */
+.highlight {
+  background-color: #fffa90 !important;  /* soft yellow glow */
+  border-color: #f9c74f !important;      /* golden border */
+  box-shadow: 0 0 10px #f9c74f;          /* glowing effect */
+}
